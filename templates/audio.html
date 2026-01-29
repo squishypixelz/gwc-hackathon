@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audio Transcription - Upload</title>
+    <link rel="stylesheet" href="../static/audio.css">
+</head>
+<body>
+    <!-- Animated particles -->
+    <script>
+        for(let i = 0; i < 20; i++) {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.animationDelay = Math.random() * 15 + 's';
+            particle.style.animationDuration = (15 + Math.random() * 10) + 's';
+            document.body.appendChild(particle);
+        }
+    </script>
+
+    <div class="container">
+        <div class="header">
+            <div class="logo">🎙️</div>
+            <h1>Audio Transcription</h1>
+            <p class="subtitle">Upload your audio file to get started</p>
+        </div>
+
+        <div class="upload-area" id="uploadArea">
+            <div class="upload-icon">📁</div>
+            <div class="upload-text">Click to upload or drag and drop</div>
+            <p class="upload-subtext">Maximum file size: 100MB</p>
+            <div class="file-types">
+                <span class="file-type">MP3</span>
+                <span class="file-type">WAV</span>
+                <span class="file-type">M4A</span>
+                <span class="file-type">FLAC</span>
+                <span class="file-type">OGG</span>
+            </div>
+            <input type="file" id="fileInput" accept="audio/*">
+        </div>
+
+        <div class="file-info" id="fileInfo">
+            <div class="file-name" id="fileName">
+                <span>📄</span>
+                <span id="fileNameText"></span>
+                <button class="remove-file" id="removeFile">Remove</button>
+            </div>
+            <div class="file-size" id="fileSize"></div>
+        </div>
+
+        <button class="button" id="transcribeBtn" disabled>Start Transcription</button>
+    </div>
+
+    <script>
+        const uploadArea = document.getElementById('uploadArea');
+        const fileInput = document.getElementById('fileInput');
+        const fileInfo = document.getElementById('fileInfo');
+        const fileNameText = document.getElementById('fileNameText');
+        const fileSize = document.getElementById('fileSize');
+        const transcribeBtn = document.getElementById('transcribeBtn');
+        const removeFile = document.getElementById('removeFile');
+        let selectedFile = null;
+
+        // Click to upload
+        uploadArea.addEventListener('click', () => {
+            fileInput.click();
+        });
+
+        // File selection
+        fileInput.addEventListener('change', (e) => {
+            handleFile(e.target.files[0]);
+        });
+
+        // Drag and drop
+        uploadArea.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            uploadArea.classList.add('dragover');
+        });
+
+        uploadArea.addEventListener('dragleave', () => {
+            uploadArea.classList.remove('dragover');
+        });
+
+        uploadArea.addEventListener('drop', (e) => {
+            e.preventDefault();
+            uploadArea.classList.remove('dragover');
+            handleFile(e.dataTransfer.files[0]);
+        });
+
+        function handleFile(file) {
+            if (file && file.type.startsWith('audio/')) {
+                selectedFile = file;
+                fileNameText.textContent = file.name;
+                fileSize.textContent = formatFileSize(file.size);
+                fileInfo.style.display = 'block';
+                transcribeBtn.disabled = false;
+            } else {
+                alert('Please select a valid audio file');
+            }
+        }
+
+        function formatFileSize(bytes) {
+            if (bytes === 0) return '0 Bytes';
+            const k = 1024;
+            const sizes = ['Bytes', 'KB', 'MB', 'GB'];
+            const i = Math.floor(Math.log(bytes) / Math.log(k));
+            return Math.round(bytes / Math.pow(k, i) * 100) / 100 + ' ' + sizes[i];
+        }
+
+        removeFile.addEventListener('click', (e) => {
+            e.stopPropagation();
+            selectedFile = null;
+            fileInput.value = '';
+            fileInfo.style.display = 'none';
+            transcribeBtn.disabled = true;
+        });
+
+        transcribeBtn.addEventListener("click", async () => {
+            if (selectedFile) {
+                const formData = new FormData();
+                formData.append("file", selectedFile);
+                
+                transcribeBtn.textContent = "Transcribing...";
+                transcribeBtn.disabled = true;
+                
+                try {
+                    const response = await fetch("/transcribe", {
+                        method: "POST",
+                        body: formData
+                    });
+                    
+                    const result = await response.json();
+                    
+                    if (result.success) {
+                        alert("Transcription: " + result.text);
+                    } else {
+                        alert("Error: " + result.error);
+                    }
+                } catch (error) {
+                    alert("Error: " + error.message);
+                } finally {
+                    transcribeBtn.textContent = "Start Transcription";
+                    transcribeBtn.disabled = false;
+                }
+            }
+        });
+    </script>
+</body>
+</html>
