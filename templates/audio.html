@@ -1,150 +1,231 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Audio Transcription - Upload</title>
-    <link rel="stylesheet" href="../static/audio.css">
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial_scale=1.0" name="viewport"/>
+<title>Upload Lecture - YawnsBeGone</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#f4a825",
+                        "background-obsidian": "#0a0a0c",
+                        "card-dark": "#121214",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style type="text/tailwindcss">
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glow-border {
+            box-shadow: 0 0 20px -5px rgba(244, 168, 37, 0.15);
+        }
+        .orange-gradient {
+            background: linear-gradient(135deg, #f4a825 0%, #ffc86b 100%);
+        }
+    </style>
 </head>
-<body>
-    <!-- Animated particles -->
-    <script>
-        for(let i = 0; i < 20; i++) {
-            const particle = document.createElement('div');
-            particle.className = 'particle';
-            particle.style.left = Math.random() * 100 + '%';
-            particle.style.animationDelay = Math.random() * 15 + 's';
-            particle.style.animationDuration = (15 + Math.random() * 10) + 's';
-            document.body.appendChild(particle);
+<body class="bg-background-obsidian font-display text-white selection:bg-primary/30">
+<div class="relative flex min-h-screen w-full flex-col overflow-x-hidden">
+<header class="w-full">
+<div class="mx-auto max-w-7xl px-6 py-8">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2 group cursor-pointer">
+<div class="flex h-10 w-10 items-center justify-center rounded-xl bg-primary text-background-obsidian transition-transform group-hover:scale-105">
+<span class="material-symbols-outlined font-black">bolt</span>
+</div>
+<h2 class="text-2xl font-black tracking-tight text-white">YawnsBeGone</h2>
+</div>
+<a class="flex items-center gap-2 text-sm font-medium text-white/50 hover:text-white transition-colors" href="/">
+<span class="material-symbols-outlined !text-xl">arrow_back</span>
+Back to Home
+</a>
+</div>
+</div>
+</header>
+<main class="flex flex-grow items-center justify-center px-6 py-12">
+<div class="w-full max-w-2xl">
+<div class="mb-10 text-center">
+<h1 class="text-4xl font-black tracking-tight text-white mb-3">Upload your lecture</h1>
+<p class="text-white/50 text-lg">We'll automatically skip the silence and filler content.</p>
+</div>
+<div class="group relative overflow-hidden rounded-3xl border border-white/10 bg-card-dark p-2 glow-border">
+<div class="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+<label class="relative flex min-h-[400px] cursor-pointer flex-col items-center justify-center rounded-[1.25rem] border-2 border-dashed border-white/5 bg-white/[0.02] px-6 transition-all hover:border-primary/40 hover:bg-white/[0.04]" id="uploadArea">
+<input accept="audio/*,video/*,.mp3,.wav,.m4a,.flac,.ogg,.mp4,.mov,.avi,.mkv,.webm" class="hidden" type="file" id="fileInput"/>
+<div class="flex flex-col items-center text-center" id="uploadContent">
+<div class="mb-6 flex h-20 w-20 items-center justify-center rounded-full bg-primary/10 text-primary">
+<span class="material-symbols-outlined !text-5xl font-light">cloud_upload</span>
+</div>
+<h3 class="text-2xl font-bold text-white mb-2">Drag your lecture here</h3>
+<p class="text-white/40 text-lg mb-8">or <span class="text-primary hover:underline">click to browse</span></p>
+<div class="flex flex-wrap justify-center gap-2 mb-4">
+<span class="rounded-md bg-white/5 px-2.5 py-1 text-[10px] font-bold uppercase tracking-widest text-white/40 border border-white/5">MP3</span>
+<span class="rounded-md bg-white/5 px-2.5 py-1 text-[10px] font-bold uppercase tracking-widest text-white/40 border border-white/5">WAV</span>
+<span class="rounded-md bg-white/5 px-2.5 py-1 text-[10px] font-bold uppercase tracking-widest text-white/40 border border-white/5">M4A</span>
+<span class="rounded-md bg-white/5 px-2.5 py-1 text-[10px] font-bold uppercase tracking-widest text-white/40 border border-white/5">FLAC</span>
+<span class="rounded-md bg-white/5 px-2.5 py-1 text-[10px] font-bold uppercase tracking-widest text-white/40 border border-white/5">OGG</span>
+<span class="rounded-md bg-white/5 px-2.5 py-1 text-[10px] font-bold uppercase tracking-widest text-white/40 border border-white/5">MP4</span>
+<span class="rounded-md bg-white/5 px-2.5 py-1 text-[10px] font-bold uppercase tracking-widest text-white/40 border border-white/5">MOV</span>
+<span class="rounded-md bg-white/5 px-2.5 py-1 text-[10px] font-bold uppercase tracking-widest text-white/40 border border-white/5">MKV</span>
+</div>
+<p class="text-xs font-medium text-white/30">Max 500MB (Audio or Video)</p>
+</div>
+<div class="hidden flex-col items-center text-center" id="fileSelectedContent">
+<div class="mb-6 flex h-20 w-20 items-center justify-center rounded-full bg-primary/10 text-primary">
+<span class="material-symbols-outlined !text-5xl font-light">check_circle</span>
+</div>
+<h3 class="text-2xl font-bold text-white mb-2" id="selectedFileName">File selected</h3>
+<p class="text-white/40 text-lg mb-4">Click below to process your lecture</p>
+<button class="text-sm text-primary hover:underline" onclick="document.getElementById('fileInput').click(); return false;">
+Change file
+</button>
+</div>
+</label>
+</div>
+<div class="mt-10 flex flex-col items-center">
+<button class="orange-gradient flex h-16 w-full items-center justify-center rounded-full px-8 text-xl font-black text-background-obsidian opacity-100 cursor-pointer hover:scale-105 shadow-[0_0_40px_-10px_rgba(244,168,37,0.3)] transition-all" id="uploadBtn">
+<span>Upload &amp; Skip Yawns</span>
+</button>
+<p class="mt-4 text-xs text-center text-white/30">By uploading, you agree to our Terms of Service.</p>
+</div>
+</div>
+</main>
+<div class="pointer-events-none absolute -bottom-24 -left-24 h-96 w-96 rounded-full bg-primary/5 blur-[120px]"></div>
+<div class="pointer-events-none absolute -top-24 -right-24 h-96 w-96 rounded-full bg-primary/5 blur-[120px]"></div>
+<footer class="mt-auto py-12 px-6">
+<div class="mx-auto max-w-7xl border-t border-white/5 pt-12 flex flex-col items-center justify-between gap-8 md:flex-row">
+<p class="text-sm text-white/30">© 2024 YawnsBeGone AI. All rights reserved.</p>
+<div class="flex gap-8">
+<a class="text-sm font-medium text-white/30 hover:text-white transition-colors" href="#">Privacy</a>
+<a class="text-sm font-medium text-white/30 hover:text-white transition-colors" href="#">Terms</a>
+<a class="text-sm font-medium text-white/30 hover:text-white transition-colors" href="#">Support</a>
+</div>
+</div>
+</footer>
+</div>
+
+<script>
+    const uploadArea = document.getElementById('uploadArea');
+    const fileInput = document.getElementById('fileInput');
+    const uploadBtn = document.getElementById('uploadBtn');
+    const uploadContent = document.getElementById('uploadContent');
+    const fileSelectedContent = document.getElementById('fileSelectedContent');
+    const selectedFileName = document.getElementById('selectedFileName');
+    let selectedFile = null;
+
+    // File selection
+    fileInput.addEventListener('change', (e) => {
+        console.log('File input changed');
+        const file = e.target.files[0];
+        handleFile(file);
+    });
+
+    // Drag and drop
+    uploadArea.addEventListener('dragover', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        uploadArea.classList.add('border-primary/40', 'bg-white/[0.04]');
+    });
+
+    uploadArea.addEventListener('dragleave', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        uploadArea.classList.remove('border-primary/40', 'bg-white/[0.04]');
+    });
+
+    uploadArea.addEventListener('drop', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        uploadArea.classList.remove('border-primary/40', 'bg-white/[0.04]');
+        const file = e.dataTransfer.files[0];
+        console.log('File dropped:', file);
+        handleFile(file);
+    });
+
+    function handleFile(file) {
+        if (!file) {
+            console.log('No file provided');
+            return;
         }
-    </script>
+        
+        console.log('File selected:', file.name);
+        console.log('File type:', file.type);
+        console.log('File size:', file.size);
+        
+        selectedFile = file;
+        
+        // Update UI to show file is selected
+        uploadContent.classList.add('hidden');
+        fileSelectedContent.classList.remove('hidden');
+        fileSelectedContent.classList.add('flex');
+        selectedFileName.textContent = file.name;
+        
+        console.log('File set as selectedFile');
+    }
 
-    <div class="container">
-        <div class="header">
-            <div class="logo">🎙️</div>
-            <h1>Audio Transcription</h1>
-            <p class="subtitle">Upload your audio file to get started</p>
-        </div>
+    uploadBtn.addEventListener('click', async () => {
+        if (!selectedFile) {
+            alert('Please select a file first!');
+            return;
+        }
 
-        <div class="upload-area" id="uploadArea">
-            <div class="upload-icon">📁</div>
-            <div class="upload-text">Click to upload or drag and drop</div>
-            <p class="upload-subtext">Maximum file size: 100MB</p>
-            <div class="file-types">
-                <span class="file-type">MP3</span>
-                <span class="file-type">WAV</span>
-                <span class="file-type">M4A</span>
-                <span class="file-type">FLAC</span>
-                <span class="file-type">OGG</span>
-            </div>
-            <input type="file" id="fileInput" accept="audio/*">
-        </div>
-
-        <div class="file-info" id="fileInfo">
-            <div class="file-name" id="fileName">
-                <span>📄</span>
-                <span id="fileNameText"></span>
-                <button class="remove-file" id="removeFile">Remove</button>
-            </div>
-            <div class="file-size" id="fileSize"></div>
-        </div>
-
-        <button class="button" id="transcribeBtn" disabled>Start Transcription</button>
-    </div>
-
-    <script>
-        const uploadArea = document.getElementById('uploadArea');
-        const fileInput = document.getElementById('fileInput');
-        const fileInfo = document.getElementById('fileInfo');
-        const fileNameText = document.getElementById('fileNameText');
-        const fileSize = document.getElementById('fileSize');
-        const transcribeBtn = document.getElementById('transcribeBtn');
-        const removeFile = document.getElementById('removeFile');
-        let selectedFile = null;
-
-        // Click to upload
-        uploadArea.addEventListener('click', () => {
-            fileInput.click();
-        });
-
-        // File selection
-        fileInput.addEventListener('change', (e) => {
-            handleFile(e.target.files[0]);
-        });
-
-        // Drag and drop
-        uploadArea.addEventListener('dragover', (e) => {
-            e.preventDefault();
-            uploadArea.classList.add('dragover');
-        });
-
-        uploadArea.addEventListener('dragleave', () => {
-            uploadArea.classList.remove('dragover');
-        });
-
-        uploadArea.addEventListener('drop', (e) => {
-            e.preventDefault();
-            uploadArea.classList.remove('dragover');
-            handleFile(e.dataTransfer.files[0]);
-        });
-
-        function handleFile(file) {
-            if (file && file.type.startsWith('audio/')) {
-                selectedFile = file;
-                fileNameText.textContent = file.name;
-                fileSize.textContent = formatFileSize(file.size);
-                fileInfo.style.display = 'block';
-                transcribeBtn.disabled = false;
+        const formData = new FormData();
+        formData.append('file', selectedFile);
+        
+        console.log('FormData contents:');
+        for (let pair of formData.entries()) {
+            console.log(pair[0], pair[1]);
+        }
+        
+        uploadBtn.innerHTML = '<span class="material-symbols-outlined animate-spin">hourglass_empty</span> Processing...';
+        uploadBtn.disabled = true;
+        
+        try {
+            console.log('Starting upload for file:', selectedFile.name);
+            const response = await fetch('/upload', {
+                method: 'POST',
+                body: formData
+            });
+            
+            console.log('Upload response status:', response.status);
+            const result = await response.json();
+            console.log('Upload response:', result);
+            
+            if (response.ok && result.success) {
+                // Upload successful - redirect to results
+                console.log('Upload successful, redirecting to results...');
+                window.location.href = '/result';
             } else {
-                alert('Please select a valid audio file');
+                const errorMsg = result.error || 'Unknown error occurred';
+                console.error('Upload failed:', errorMsg);
+                alert('Error: ' + errorMsg);
+                uploadBtn.innerHTML = '<span>Upload & Skip Yawns</span>';
+                uploadBtn.disabled = false;
             }
+        } catch (error) {
+            console.error('Fetch error:', error);
+            alert('Error uploading file: ' + error.message);
+            uploadBtn.innerHTML = '<span>Upload & Skip Yawns</span>';
+            uploadBtn.disabled = false;
         }
+    });
+</script>
 
-        function formatFileSize(bytes) {
-            if (bytes === 0) return '0 Bytes';
-            const k = 1024;
-            const sizes = ['Bytes', 'KB', 'MB', 'GB'];
-            const i = Math.floor(Math.log(bytes) / Math.log(k));
-            return Math.round(bytes / Math.pow(k, i) * 100) / 100 + ' ' + sizes[i];
-        }
-
-        removeFile.addEventListener('click', (e) => {
-            e.stopPropagation();
-            selectedFile = null;
-            fileInput.value = '';
-            fileInfo.style.display = 'none';
-            transcribeBtn.disabled = true;
-        });
-
-        transcribeBtn.addEventListener("click", async () => {
-            if (selectedFile) {
-                const formData = new FormData();
-                formData.append("file", selectedFile);
-                
-                transcribeBtn.textContent = "Transcribing...";
-                transcribeBtn.disabled = true;
-                
-                try {
-                    const response = await fetch("/transcribe", {
-                        method: "POST",
-                        body: formData
-                    });
-                    
-                    const result = await response.json();
-                    
-                    if (result.success) {
-                        alert("Transcription: " + result.text);
-                    } else {
-                        alert("Error: " + result.error);
-                    }
-                } catch (error) {
-                    alert("Error: " + error.message);
-                } finally {
-                    transcribeBtn.textContent = "Start Transcription";
-                    transcribeBtn.disabled = false;
-                }
-            }
-        });
-    </script>
-</body>
-</html>
+</body></html>

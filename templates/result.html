@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Results - YawnsBeGone</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#f4a825",
+                        "background-obsidian": "#0a0a0c",
+                        "card-dark": "#121214",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style type="text/tailwindcss">
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glow-border {
+            box-shadow: 0 0 20px -5px rgba(244, 168, 37, 0.15);
+        }
+        .orange-gradient {
+            background: linear-gradient(135deg, #f4a825 0%, #ffc86b 100%);
+        }
+        @keyframes pulse-scale {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        .pulse-scale {
+            animation: pulse-scale 2s infinite;
+        }
+        @keyframes slide-in {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .slide-in {
+            animation: slide-in 0.6s ease-out;
+        }
+    </style>
+</head>
+<body class="bg-background-obsidian font-display text-white selection:bg-primary/30">
+<div class="relative flex min-h-screen w-full flex-col overflow-x-hidden">
+<header class="w-full border-b border-white/5">
+<div class="mx-auto max-w-7xl px-6 py-8">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2 group cursor-pointer">
+<div class="flex h-10 w-10 items-center justify-center rounded-xl bg-primary text-background-obsidian transition-transform group-hover:scale-105">
+<span class="material-symbols-outlined font-black">bolt</span>
+</div>
+<h2 class="text-2xl font-black tracking-tight text-white">YawnsBeGone</h2>
+</div>
+<a class="flex items-center gap-2 text-sm font-medium text-white/50 hover:text-white transition-colors" href="/">
+<span class="material-symbols-outlined !text-xl">arrow_back</span>
+Back to Home
+</a>
+</div>
+</div>
+</header>
+<main class="flex flex-grow items-center justify-center px-6 py-12">
+<div class="w-full max-w-4xl">
+<div class="mb-12 text-center">
+<div class="mb-6 flex justify-center">
+<div class="flex h-24 w-24 items-center justify-center rounded-full bg-primary/20 text-primary pulse-scale">
+<span class="material-symbols-outlined !text-6xl font-light">check_circle</span>
+</div>
+</div>
+<h1 class="text-4xl font-black tracking-tight text-white mb-3">Yawns Eliminated! 🎉</h1>
+<p class="text-white/50 text-lg">Your lecture has been processed and the boring parts removed.</p>
+</div>
+
+<!-- Stats Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+<!-- Time Saved Card -->
+<div class="group relative overflow-hidden rounded-2xl border border-white/10 bg-card-dark p-8 glow-border slide-in">
+<div class="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+<div class="relative">
+<div class="flex items-center gap-3 mb-4">
+<span class="material-symbols-outlined text-primary text-4xl">schedule</span>
+<h3 class="text-xl font-bold text-white">Time Saved</h3>
+</div>
+<div class="text-5xl font-black text-primary mb-2" id="timeSaved">0:00</div>
+<p class="text-white/50 text-sm">of boring silence removed</p>
+</div>
+</div>
+
+<!-- Efficiency Card -->
+<div class="group relative overflow-hidden rounded-2xl border border-white/10 bg-card-dark p-8 glow-border slide-in" style="animation-delay: 0.1s;">
+<div class="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+<div class="relative">
+<div class="flex items-center gap-3 mb-4">
+<span class="material-symbols-outlined text-primary text-4xl">trending_up</span>
+<h3 class="text-xl font-bold text-white">Efficiency Boost</h3>
+</div>
+<div class="text-5xl font-black text-primary mb-2" id="percentageRemoved">0%</div>
+<p class="text-white/50 text-sm">of lecture was just silence</p>
+</div>
+</div>
+
+<!-- Pauses Found Card -->
+<div class="group relative overflow-hidden rounded-2xl border border-white/10 bg-card-dark p-8 glow-border slide-in" style="animation-delay: 0.2s;">
+<div class="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+<div class="relative">
+<div class="flex items-center gap-3 mb-4">
+<span class="material-symbols-outlined text-primary text-4xl">hourglass_empty</span>
+<h3 class="text-xl font-bold text-white">Pauses Eliminated</h3>
+</div>
+<div class="text-5xl font-black text-primary mb-2" id="pauseCount">0</div>
+<p class="text-white/50 text-sm">awkward silences removed</p>
+</div>
+</div>
+
+<!-- Original Duration Card -->
+<div class="group relative overflow-hidden rounded-2xl border border-white/10 bg-card-dark p-8 glow-border slide-in" style="animation-delay: 0.3s;">
+<div class="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+<div class="relative">
+<div class="flex items-center gap-3 mb-4">
+<span class="material-symbols-outlined text-primary text-4xl">timer</span>
+<h3 class="text-xl font-bold text-white">New Duration</h3>
+</div>
+<div class="text-5xl font-black text-primary mb-2" id="newDuration">0:00</div>
+<p class="text-white/50 text-sm">optimized lecture length</p>
+</div>
+</div>
+</div>
+
+<!-- Progress Bar -->
+<div class="mb-8 rounded-2xl border border-white/10 bg-card-dark p-8">
+<div class="mb-4 flex items-center justify-between">
+<h3 class="text-lg font-bold text-white">Lecture Optimization</h3>
+<span class="text-sm text-white/50" id="progressText">0%</span>
+</div>
+<div class="w-full h-3 bg-white/5 rounded-full overflow-hidden">
+<div class="h-full orange-gradient rounded-full transition-all duration-1000" id="progressBar" style="width: 0%;"></div>
+</div>
+</div>
+
+<!-- Action Buttons -->
+<div class="flex flex-col sm:flex-row gap-4 mb-8">
+<button class="orange-gradient flex h-14 flex-1 items-center justify-center gap-2 rounded-full text-lg font-black text-background-obsidian hover:scale-105 transition-transform" id="downloadBtn">
+<span class="material-symbols-outlined">download</span>
+Download Optimized Lecture
+</button>
+<a href="/" class="flex h-14 flex-1 items-center justify-center gap-2 rounded-full border border-white/10 text-lg font-black text-white hover:bg-white/5 transition-colors">
+<span class="material-symbols-outlined">arrow_back</span>
+Process Another
+</a>
+</div>
+
+<!-- Transcription Section -->
+<div class="rounded-2xl border border-white/10 bg-card-dark p-8">
+<h3 class="text-xl font-bold text-white mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">description</span>
+Transcription Preview
+</h3>
+<div class="max-h-64 overflow-y-auto bg-white/5 rounded-xl p-6 text-white/70 leading-relaxed" id="transcriptionText">
+<p class="text-white/50 text-center py-8">Loading transcription...</p>
+</div>
+</div>
+</div>
+</main>
+
+<div class="pointer-events-none absolute -bottom-24 -left-24 h-96 w-96 rounded-full bg-primary/5 blur-[120px]"></div>
+<div class="pointer-events-none absolute -top-24 -right-24 h-96 w-96 rounded-full bg-primary/5 blur-[120px]"></div>
+
+<footer class="mt-auto py-12 px-6 border-t border-white/5">
+<div class="mx-auto max-w-7xl flex flex-col items-center justify-between gap-8 md:flex-row">
+<p class="text-sm text-white/30">© 2024 YawnsBeGone AI. All rights reserved.</p>
+<div class="flex gap-8">
+<a class="text-sm font-medium text-white/30 hover:text-white transition-colors" href="#">Privacy</a>
+<a class="text-sm font-medium text-white/30 hover:text-white transition-colors" href="#">Terms</a>
+<a class="text-sm font-medium text-white/30 hover:text-white transition-colors" href="#">Support</a>
+</div>
+</div>
+</footer>
+</div>
+
+<script>
+    function formatTime(seconds) {
+        const mins = Math.floor(seconds / 60);
+        const secs = Math.floor(seconds % 60);
+        return `${mins}:${secs.toString().padStart(2, '0')}`;
+    }
+
+    function animateValue(element, start, end, duration) {
+        let startTimestamp = null;
+        const step = (timestamp) => {
+            if (!startTimestamp) startTimestamp = timestamp;
+            const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+            element.textContent = Math.floor(progress * (end - start) + start);
+            if (progress < 1) {
+                window.requestAnimationFrame(step);
+            }
+        };
+        window.requestAnimationFrame(step);
+    }
+
+    // Load stats from backend
+    fetch('/get-stats')
+        .then(response => response.json())
+        .then(data => {
+            if (data.error) {
+                console.error('Error fetching stats:', data.error);
+                return;
+            }
+            
+            const stats = data;
+            if (stats && Object.keys(stats).length > 0) {
+                // Update stats
+                document.getElementById('timeSaved').textContent = formatTime(stats.time_removed);
+                document.getElementById('newDuration').textContent = formatTime(stats.trimmed_duration);
+                document.getElementById('pauseCount').textContent = stats.num_pauses;
+                
+                // Animate percentage
+                animateValue(document.getElementById('percentageRemoved'), 0, Math.round(stats.percentage_removed), 1000);
+                
+                // Animate progress bar
+                setTimeout(() => {
+                    document.getElementById('progressBar').style.width = stats.percentage_removed + '%';
+                    document.getElementById('progressText').textContent = Math.round(stats.percentage_removed) + '%';
+                }, 300);
+            }
+        })
+        .catch(error => console.error('Failed to fetch stats:', error));
+
+    // Load transcription from backend
+    function loadTranscription() {
+        fetch('/get-transcription')
+            .then(response => response.json())
+            .then(data => {
+                if (data.error) {
+                    console.error('Error fetching transcription:', data.error);
+                    return;
+                }
+                
+                const transcriptionText = data.transcription;
+                if (transcriptionText && transcriptionText !== 'Still transcribing...' && transcriptionText !== 'Getting the text version...') {
+                    document.getElementById('transcriptionText').innerHTML = `<p>${transcriptionText}</p>`;
+                } else if (transcriptionText === 'Getting the text version...' || transcriptionText === 'Still transcribing...') {
+                    // Check again in 2 seconds
+                    setTimeout(loadTranscription, 2000);
+                }
+            })
+            .catch(error => console.error('Failed to fetch transcription:', error));
+    }
+
+    // Start loading transcription
+    loadTranscription();
+
+    // Download button
+    document.getElementById('downloadBtn').addEventListener('click', () => {
+        window.location.href = '/download';
+    });
+</script>
+
+</body></html>

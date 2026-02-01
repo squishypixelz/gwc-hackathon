@@ -1,323 +1,178 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LectureFlow - Intelligent Lecture Optimization</title>
-    <link rel="stylesheet" href="../static/style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Manrope:wght@300;400;600&display=swap" rel="stylesheet">
-</head>
-<body>
-    <div class="noise-overlay"></div>
-    
-    <div class="gradient-orb orb-1"></div>
-    <div class="gradient-orb orb-2"></div>
-    <div class="gradient-orb orb-3"></div>
-
-    <nav class="navbar">
-        <div class="navbar-content">
-            <div class="logo">
-                <div class="logo-icon">
-                    <div class="wave"></div>
-                    <div class="wave"></div>
-                    <div class="wave"></div>
-                </div>
-                <span class="logo-text">LectureFlow</span>
-            </div>
-            <div class="nav-links">
-                <a href="#home" class="nav-link">Home</a>
-                <a href="#features" class="nav-link">Features</a>
-                <a href="#how-it-works" class="nav-link">How It Works</a>
-                <a href="#benefits" class="nav-link">Benefits</a>
-            </div>
-        </div>
-    </nav>
-
-    <div class="container">
-        <header class="header" id="home"></header>
-
-        <main class="hero">
-            <h1 class="hero-title">
-                <span class="title-line">Never Miss</span>
-                <span class="title-line">The Important</span>
-                <span class="title-line gradient-text">Moments</span>
-            </h1>
-
-            <p class="hero-description">
-                Transform your lectures into optimized learning experiences. Our AI analyzes your recordings,
-                speeds through the fluff, and slows down when information density peaks.
-            </p>
-
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">⚡</div>
-                    <h3>Smart Speed Control</h3>
-                    <p>Automatically adjusts playback speed based on content density</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🎯</div>
-                    <h3>Focus on What Matters</h3>
-                    <p>Skip boring parts and slow down for complex concepts</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🧠</div>
-                    <h3>AI Analysis</h3>
-                    <p>Advanced algorithms detect information-rich segments</p>
-                </div>
-            </div>
-
-            <button class="cta-button" id="uploadBtn">
-                <span class="button-text">Upload Your Lecture</span>
-                <svg class="button-arrow" width="20" height="20" viewBox="0 0 20 20" fill="none">
-                    <path d="M4 10H16M16 10L11 5M16 10L11 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-            </button>
-
-            <div class="stats">
-                <div class="stat-item">
-                    <div class="stat-number">10K+</div>
-                    <div class="stat-label">Lectures Optimized</div>
-                </div>
-                <div class="stat-divider"></div>
-                <div class="stat-item">
-                    <div class="stat-number">40%</div>
-                    <div class="stat-label">Time Saved</div>
-                </div>
-                <div class="stat-divider"></div>
-                <div class="stat-item">
-                    <div class="stat-number">95%</div>
-                    <div class="stat-label">Satisfaction Rate</div>
-                </div>
-            </div>
-        </main>
-
-        <section class="section" id="features">
-            <h2 class="section-title">Powerful Features</h2>
-            <p class="section-subtitle">Everything you need to optimize your learning experience</p>
-            
-            <div class="features-detailed">
-                <div class="feature-detail">
-                    <div class="feature-detail-icon">🎬</div>
-                    <h3>Intelligent Video Analysis</h3>
-                    <p>Our AI analyzes speech patterns, silence duration, and content density to automatically identify which parts of your lecture are information-rich and which are filler.</p>
-                </div>
-                <div class="feature-detail">
-                    <div class="feature-detail-icon">⚙️</div>
-                    <h3>Dynamic Speed Adjustment</h3>
-                    <p>Playback speed automatically adjusts in real-time. Slow sections speed up to 2x, while complex topics slow down to 0.75x for better comprehension.</p>
-                </div>
-                <div class="feature-detail">
-                    <div class="feature-detail-icon">📊</div>
-                    <h3>Visual Timeline</h3>
-                    <p>See a color-coded timeline showing information density throughout your lecture, making it easy to jump to the most important sections.</p>
-                </div>
-                <div class="feature-detail">
-                    <div class="feature-detail-icon">💾</div>
-                    <h3>Save & Export</h3>
-                    <p>Download your optimized lectures or export the speed adjustment data to use with your favorite video player.</p>
-                </div>
-            </div>
-        </section>
-
-        <section class="section" id="how-it-works">
-            <h2 class="section-title">How It Works</h2>
-            <p class="section-subtitle">Simple process, powerful results</p>
-            
-            <div class="steps">
-                <div class="step">
-                    <div class="step-number">01</div>
-                    <h3>Upload Your Lecture</h3>
-                    <p>Drop your video or audio file into our platform. We support all major formats including MP4, MOV, MP3, and WAV.</p>
-                </div>
-                <div class="step-connector"></div>
-                <div class="step">
-                    <div class="step-number">02</div>
-                    <h3>AI Analysis</h3>
-                    <p>Our advanced algorithms analyze speech patterns, pauses, and content density to map out your entire lecture.</p>
-                </div>
-                <div class="step-connector"></div>
-                <div class="step">
-                    <div class="step-number">03</div>
-                    <h3>Smart Playback</h3>
-                    <p>Watch or listen with automatically adjusted speeds. Focus on what matters without missing critical information.</p>
-                </div>
-            </div>
-        </section>
-
-        <section class="section" id="benefits">
-            <h2 class="section-title">Why LectureFlow?</h2>
-            <p class="section-subtitle">Transform the way you learn</p>
-            
-            <div class="benefits-grid">
-                <div class="benefit-card">
-                    <h3>⏱️ Save Time</h3>
-                    <p>Reduce lecture viewing time by up to 40% without missing important content.</p>
-                </div>
-                <div class="benefit-card">
-                    <h3>🎓 Better Retention</h3>
-                    <p>Slower playback on complex topics improves comprehension and memory retention.</p>
-                </div>
-                <div class="benefit-card">
-                    <h3>📱 Any Device</h3>
-                    <p>Access your optimized lectures from any device, anywhere, anytime.</p>
-                </div>
-                <div class="benefit-card">
-                    <h3>🔒 Private & Secure</h3>
-                    <p>Your lectures are encrypted and only accessible by you. We never share your data.</p>
-                </div>
-                <div class="benefit-card">
-                    <h3>🚀 Lightning Fast</h3>
-                    <p>Advanced processing ensures your lectures are analyzed and ready in minutes.</p>
-                </div>
-                <div class="benefit-card">
-                    <h3>💡 Smart Bookmarks</h3>
-                    <p>Automatically generated bookmarks highlight key concepts and important sections.</p>
-                </div>
-            </div>
-        </section>
-
-        <section class="cta-section">
-            <h2>Ready to Optimize Your Learning?</h2>
-            <p>Join thousands of students already saving time and improving comprehension</p>
-            <button class="cta-button" id="uploadBtn2">
-                <span class="button-text">Get Started Now</span>
-                <svg class="button-arrow" width="20" height="20" viewBox="0 0 20 20" fill="none">
-                    <path d="M4 10H16M16 10L11 5M16 10L11 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-            </button>
-        </section>
-    </div>
-
-    <div class="upload-modal" id="uploadModal">
-        <div class="modal-backdrop" id="modalBackdrop"></div>
-        <div class="modal-content">
-            <button class="modal-close" id="closeModal">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                    <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                </svg>
-            </button>
-            
-            <div class="modal-header">
-                <h2>Upload Your Lecture</h2>
-                <p>Drop your video or audio file below</p>
-            </div>
-
-            <div class="upload-area" id="uploadArea">
-                <input type="file" id="fileInput" accept="video/*,audio/*" hidden>
-                <div class="upload-icon">
-                    <svg width="64" height="64" viewBox="0 0 64 64" fill="none">
-                        <path d="M32 8V40M32 8L20 20M32 8L44 20" stroke="url(#uploadGradient)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-                        <path d="M12 40V52C12 54.2091 13.7909 56 16 56H48C50.2091 56 52 54.2091 52 52V40" stroke="url(#uploadGradient)" stroke-width="3" stroke-linecap="round"/>
-                        <defs>
-                            <linearGradient id="uploadGradient" x1="12" y1="8" x2="52" y2="56" gradientUnits="userSpaceOnUse">
-                                <stop stop-color="#a855f7"/>
-                                <stop offset="1" stop-color="#ec4899"/>
-                            </linearGradient>
-                        </defs>
-                    </svg>
-                </div>
-                <h3 class="upload-title">Drop your file here</h3>
-                <p class="upload-subtitle">or click to browse</p>
-                <div class="upload-formats">MP4, MOV, MP3, WAV • Max 500MB</div>
-            </div>
-
-            <div class="processing-state" id="processingState" style="display: none;">
-                <div class="processing-spinner"></div>
-                <h3>Analyzing your lecture...</h3>
-                <p>This may take a few moments</p>
-            </div>
-        </div>
-    </div>
-
-    <script>
-        const uploadBtn = document.getElementById('uploadBtn');
-        const uploadBtn2 = document.getElementById('uploadBtn2');
-        const uploadModal = document.getElementById('uploadModal');
-        const modalBackdrop = document.getElementById('modalBackdrop');
-        const closeModal = document.getElementById('closeModal');
-        const uploadArea = document.getElementById('uploadArea');
-        const fileInput = document.getElementById('fileInput');
-        const processingState = document.getElementById('processingState');
-
-        uploadBtn.addEventListener('click', () => {
-            uploadModal.classList.add('active');
-            document.body.style.overflow = 'hidden';
-        });
-
-        uploadBtn2.addEventListener('click', () => {
-            uploadModal.classList.add('active');
-            document.body.style.overflow = 'hidden';
-        });
-
-        modalBackdrop.addEventListener('click', closeModalFn);
-        closeModal.addEventListener('click', closeModalFn);
-
-        function closeModalFn() {
-            uploadModal.classList.remove('active');
-            document.body.style.overflow = 'auto';
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial_scale=1.0" name="viewport"/>
+<title>YawnsBeGone - Lectures, Without The Yawns</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#f4a825",
+                        "background-light": "#f8f7f5",
+                        "background-dark": "#0f172a",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                },
+            },
         }
-
-        uploadArea.addEventListener('click', () => {
-            fileInput.click();
-        });
-
-        uploadArea.addEventListener('dragover', (e) => {
-            e.preventDefault();
-            uploadArea.classList.add('dragover');
-        });
-
-        uploadArea.addEventListener('dragleave', () => {
-            uploadArea.classList.remove('dragover');
-        });
-
-        uploadArea.addEventListener('drop', (e) => {
-            e.preventDefault();
-            uploadArea.classList.remove('dragover');
-            const file = e.dataTransfer.files[0];
-            if (file) {
-                handleFile(file);
-            }
-        });
-
-        fileInput.addEventListener('change', (e) => {
-            const file = e.target.files[0];
-            if (file) {
-                handleFile(file);
-            }
-        });
-
-        function handleFile(file) {
-            uploadArea.style.display = 'none';
-            processingState.style.display = 'flex';
-        }
-
-        document.addEventListener('mousemove', (e) => {
-            const orbs = document.querySelectorAll('.gradient-orb');
-            const x = e.clientX / window.innerWidth;
-            const y = e.clientY / window.innerHeight;
-            
-            orbs.forEach((orb, index) => {
-                const speed = (index + 1) * 0.05;
-                const xMove = (x - 0.5) * 100 * speed;
-                const yMove = (y - 0.5) * 100 * speed;
-                orb.style.transform = `translate(${xMove}px, ${yMove}px)`;
-            });
-        });
-
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
     </script>
-</body>
-</html>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-white">
+<div class="relative flex min-h-screen w-full flex-col overflow-x-hidden">
+<header class="sticky top-0 z-50 w-full border-b border-white/10 bg-background-dark/80 backdrop-blur-md">
+<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+<div class="flex h-16 items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="flex h-8 w-8 items-center justify-center rounded-lg bg-primary text-background-dark">
+<span class="material-symbols-outlined">bolt</span>
+</div>
+<h2 class="text-xl font-black tracking-tight text-white">YawnsBeGone</h2>
+</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-sm font-medium text-white/70 hover:text-primary transition-colors" href="#how-it-works">How it works</a>
+<button class="flex min-w-[120px] cursor-pointer items-center justify-center rounded-full h-10 px-6 bg-primary text-background-dark text-sm font-bold tracking-wide hover:scale-105 transition-transform">
+                        Get Started
+                    </button>
+</nav>
+</div>
+</div>
+</header>
+<main class="flex-grow">
+<section class="relative px-4 py-16 sm:py-24 lg:py-32">
+<div class="mx-auto max-w-7xl">
+<div class="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:items-center">
+<div class="flex flex-col gap-8 text-left">
+<div class="inline-flex items-center rounded-full bg-primary/10 px-3 py-1 text-xs font-bold uppercase tracking-wider text-primary">
+                            Intelligent Lecture Optimization
+                        </div>
+<h1 class="text-5xl font-black leading-[1.1] tracking-[-0.03em] text-white sm:text-7xl">
+                            Lectures, Without <br/>
+<span class="text-primary">The Yawns.</span>
+</h1>
+<p class="max-w-xl text-lg font-normal leading-relaxed text-white/70 sm:text-xl">
+                            Our AI identifies and automatically skips boring, non-essential parts of lectures, long pauses, and filler content. Get straight to the important information and save hours every week.
+                        </p>
+<div class="flex flex-col sm:flex-row gap-4">
+<button class="flex h-14 items-center justify-center rounded-full bg-primary px-8 text-lg font-black text-background-dark shadow-[0_0_40px_-10px_rgba(244,168,37,0.5)] hover:scale-105 transition-transform active:scale-95" id="uploadBtn">
+<span class="truncate">Upload Lecture to Skip Yawns</span>
+</button>
+</div>
+</div>
+<div class="relative">
+<div class="absolute -inset-4 rounded-xl bg-gradient-to-r from-primary/20 to-transparent blur-2xl"></div>
+<div class="relative overflow-hidden rounded-xl border border-white/10 bg-white/5 p-2 backdrop-blur-sm">
+<div class="aspect-video w-full rounded-lg bg-center bg-no-repeat bg-cover shadow-2xl" data-alt="Modern UI dashboard showing a fast forward icon over a sound wave visualization" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuA7yMMl73hULlX17_GJ1ykCSeJScYNosWSqfUinaLLIsiaVSWtPq_yP5r9zWo8qhwNK0NnGkNHR76SNZZ7BcASllWNDH53XMoqEuqoTovVLcrIAWzR9K-7xpB0s7lXI1YCxa-oELb8X1m2hTJz7r6TZg8bojMbcywpICGUZ931E_UydInCfbZWx08eh1AdjasvThRoR4GYXF7sqzWhIfPknyWDuiUqr4Sp7Q1jm8rjs2ODZBozQMfjpQ9J-e7MVWUkd015kwTkE3gw");'>
+<div class="flex h-full w-full items-center justify-center bg-black/40">
+<div class="flex h-20 w-20 items-center justify-center rounded-full bg-primary text-background-dark shadow-2xl">
+<span class="material-symbols-outlined !text-4xl font-black">fast_forward</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="py-20 bg-white/5" id="how-it-works">
+<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+<div class="mb-16 text-center lg:text-left">
+<h2 class="text-3xl font-black tracking-tight text-white sm:text-4xl">Skip the Fluff. Keep the Knowledge.</h2>
+<p class="mt-4 max-w-2xl text-lg text-white/60">YawnsBeGone uses advanced neural networks to separate the signal from the noise in academic content.</p>
+</div>
+<div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+<div class="group flex flex-col gap-4 rounded-xl border border-white/10 bg-background-dark p-8 transition-all hover:border-primary/50">
+<div class="flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 text-primary group-hover:bg-primary group-hover:text-background-dark transition-colors">
+<span class="material-symbols-outlined">auto_videocam</span>
+</div>
+<div>
+<h3 class="text-xl font-bold text-white">Smart Trimming</h3>
+<p class="mt-2 text-white/60 leading-relaxed">Automatically detects non-essential banter, tech setups, and off-topic tangents that distract from the curriculum.</p>
+</div>
+</div>
+<div class="group flex flex-col gap-4 rounded-xl border border-white/10 bg-background-dark p-8 transition-all hover:border-primary/50">
+<div class="flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 text-primary group-hover:bg-primary group-hover:text-background-dark transition-colors">
+<span class="material-symbols-outlined">timer_off</span>
+</div>
+<div>
+<h3 class="text-xl font-bold text-white">No More Pauses</h3>
+<p class="mt-2 text-white/60 leading-relaxed">Instantly eliminates awkward silences, long pauses while the professor writes on the board, and "dead air".</p>
+</div>
+</div>
+<div class="group flex flex-col gap-4 rounded-xl border border-white/10 bg-background-dark p-8 transition-all hover:border-primary/50">
+<div class="flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 text-primary group-hover:bg-primary group-hover:text-background-dark transition-colors">
+<span class="material-symbols-outlined">speed</span>
+</div>
+<div>
+<h3 class="text-xl font-bold text-white">Filler Removal</h3>
+<p class="mt-2 text-white/60 leading-relaxed">Cleans up "umms", "likes", and repetitive bridge phrases to keep the lecture flow concise and engaging.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="relative overflow-hidden py-24 sm:py-32">
+<div class="mx-auto max-w-4xl px-4 text-center">
+<div class="flex flex-col items-center gap-8">
+<h2 class="text-4xl font-black tracking-tight text-white sm:text-6xl">Ready to save time?</h2>
+<p class="text-lg text-white/70 max-w-2xl leading-relaxed">
+                        Join thousands of students and lifelong learners who process hours of academic material in half the time. Stop watching the clock and start learning faster.
+                    </p>
+<div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+<button class="flex h-14 min-w-[280px] items-center justify-center rounded-full bg-primary px-8 text-lg font-black text-background-dark hover:scale-105 transition-transform" id="uploadBtn2">
+                            Upload Lecture to Skip Yawns
+                        </button>
+</div>
+</div>
+</div>
+<div class="absolute left-1/2 top-1/2 -z-10 h-[400px] w-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary/20 blur-[120px]"></div>
+</section>
+</main>
+<footer class="border-t border-white/10 bg-background-dark py-12">
+<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+<div class="flex flex-col items-center justify-between gap-8 md:flex-row">
+<div class="flex items-center gap-2">
+<div class="flex h-6 w-6 items-center justify-center rounded bg-primary text-background-dark">
+<span class="material-symbols-outlined !text-sm font-black">bolt</span>
+</div>
+<span class="text-lg font-black tracking-tight text-white">YawnsBeGone</span>
+</div>
+<div class="flex gap-8">
+<a class="text-sm font-medium text-white/40 hover:text-white transition-colors" href="#">Privacy Policy</a>
+<a class="text-sm font-medium text-white/40 hover:text-white transition-colors" href="#">Terms of Service</a>
+<a class="text-sm font-medium text-white/40 hover:text-white transition-colors" href="#">Contact</a>
+</div>
+<p class="text-sm text-white/40">© 2024 YawnsBeGone AI. All rights reserved.</p>
+</div>
+</div>
+</footer>
+</div>
+
+<script>
+    document.getElementById('uploadBtn').addEventListener('click', () => {
+        window.location.href = '/upload';
+    });
+    
+    document.getElementById('uploadBtn2').addEventListener('click', () => {
+        window.location.href = '/upload';
+    });
+</script>
+
+</body></html>
